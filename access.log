@@ -1,0 +1,6 @@
+::ffff:127.0.0.1 - - [09/Jul/2022:09:52:57 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::ffff:127.0.0.1 - - [09/Jul/2022:09:52:57 +0000] "GET /css/bootstrap.min.css HTTP/1.1" 304 - "http://127.0.0.1:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::ffff:127.0.0.1 - - [09/Jul/2022:09:52:57 +0000] "GET /css/cover.css HTTP/1.1" 304 - "http://127.0.0.1:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::ffff:127.0.0.1 - - [09/Jul/2022:09:52:57 +0000] "GET /css/personal.css HTTP/1.1" 304 - "http://127.0.0.1:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::ffff:127.0.0.1 - - [09/Jul/2022:09:52:57 +0000] "GET /css/social_icon.css HTTP/1.1" 304 - "http://127.0.0.1:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::ffff:127.0.0.1 - - [09/Jul/2022:09:52:57 +0000] "GET /img/cover.jpg HTTP/1.1" 304 - "http://127.0.0.1:8080/css/cover.css" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"

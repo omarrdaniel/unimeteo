@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Meteo della cità di <%= city %>, Weather of <%= city %>">
+    <meta name="author" content="Omar Daniel, 01664A, Università degli Studi di Milano">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'>
+    <title>UniMeteo | <%= city %></title>
+    <link rel="stylesheet" href="/css/meteo.css">
+    <link rel="icon" type="image/x-icon" href="img/icona.png">
+  </head>
+  <body style="background: url('<%= unsplash %>');background-repeat: no-repeat;background-size: cover;">
+    <div class="card" id="card">
+      <div class="search">
+        <form action="/meteo" method="POST" id="req1">
+          <input type="text" class="search-bar" id="search-bar" name="city" placeholder="Search">
+          <button type="submit" id="search" name="search" form="req1"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1.5em"
+            width="1.5em" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z">
+            </path>
+          </svg></button>
+        </form>
+      </div>
+      <div class="switch-container">
+       <input type="checkbox" id="switch" />
+       <label for="switch">
+         <i class="fas fa-moon"></i>
+         <i class="fas fa-sun"></i>
+         <span class="ball"></span>
+       </label>
+      </div>
+      <div class="weather">
+        <% if(city !== null) { %>
+          <h2 class="city">Weather in <span id="city"><%= city %></span></h2>
+        <% } %>
+        <% if(temp !== null) { %>
+          <h1 class="temp"><%= temp %> °</h1>
+        <% } %>
+        <div class="flex">
+          <% if(imgsrc !== null) { %>
+            <img src="<%= imgsrc %>" alt="icona meteo" class="icon" loadin="lazy">
+          <% } %>
+          <% if(description !== null) { %>
+            <div class="description"><%= description %></div>
+          <% } %>
+        </div>
+        <% if(humidity !== null) { %>
+          <div class="humidity">Humidity: <%= humidity %> %</div>
+        <% } %>
+        <% if(wind !== null) { %>
+          <div class="wind">Wind speed: <%= wind %> km/h</div>
+        <% } %>
+        <% if(aq !== null) { %>
+          <div class="aq">Air quality: <%= aq %></div>
+        <% } %>
+      </div>
+      <hr/>
+      <% if (min !== null && max !== null && imgtoday !== null) { %>
+        <div class="days">
+          <div class="flex">
+            <div>Today:&nbsp;</div>
+            <img src="<%= imgtoday %>" class="icon" loading="lazy" alt="icona meteo">
+            <div><%= min %>° / <%= max %>°</div>
+          </div>
+          <div class="flex">
+            <div><%= day1 %>:&nbsp;</div>
+            <img src="<%= imgtom %>" class="icon" loading="lazy" alt="icona meteo">
+            <div><%= mintom %>° / <%= maxtom %>°</div>
+          </div>
+          <div class="flex">
+            <div><%= day2 %>:&nbsp;</div>
+            <img src="<%= imgdayafter %>" class="icon" loading="lazy" alt="icona meteo">
+            <div><%= mindayafter %>° / <%= maxdayafter %>°</div>
+          </div>
+          <div class="flex">
+            <div><%= day3 %>:&nbsp;</div>
+            <img src="<%= imgday3 %>" class="icon" loading="lazy" alt="icona meteo">
+            <div><%= min3 %>° / <%= max3 %>°</div>
+          </div>
+        </div>
+      <% } %>
+      <p id="footer">Daniel Omar, 01664A - Università degli Studi di Milano - 2021/22 &copy;</p>
+    </div>
+    <script type="text/javascript" src="/js/darkMode.js"></script>
+    <script type="text/javascript" src="/js/saveChoice.js"></script>
+  </body>
+</html>

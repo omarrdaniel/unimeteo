@@ -1,0 +1,18 @@
+{
+  "name": "UniMeteo",
+  "version": "1.0.0",
+  "description": "UniMeteo, il tuo servizio metereologico online a portata di click",
+  "author": "Omar Daniel",
+  "scripts": {
+    "start": "node app",
+    "dev": "nodemon app"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "fs": "^0.0.1-security",
+    "morgan": "^1.10.0",
+    "node-fetch": "^2.6.7"
+  }
+}
