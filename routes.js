@@ -82,7 +82,7 @@ router.get('/meteo', async (req,res) => {
   }
   var aq = await getAQ(lat,lon,process.env.API_KEY)
   var backgroundLink = await getImage(city,process.env.UNSPLASH_KEY)
-  if(coords[0] || coords[1] && aq){
+  if(lat || lon && aq){
     //onecall 1.0 api
     const weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely,hourly&appid=${process.env.API_KEY}`
     const index = ["Good", "Fair", "Moderate", "Poor", "Very poor"]
