@@ -1,10 +1,11 @@
 const express = require('express')
 const fs = require('fs')
-const morgan = require('morgan')
+//const morgan = require('morgan')
 const app = express()
 
-var accessLogStream = fs.createWriteStream('access.log')
-app.use(morgan('combined', {stream:accessLogStream}))
+//Togliamo morgan perchè LOG presenti in herokuApp
+//var accessLogStream = fs.createWriteStream('access.log')
+//app.use(morgan('combined', {stream:accessLogStream}))
 
 //Import routes
 const routes = require('./routes.js')
