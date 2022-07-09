@@ -17,7 +17,7 @@
  */
 
 body {
-  background-image: url("../img/cover.jpg");
+  background-image: url("../img/cover.webp");
   background-size: cover;
   background-repeat: no-repeat;
   text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
