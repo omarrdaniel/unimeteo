@@ -35,22 +35,16 @@ router.get('/', (req,res) => {
 })
 
 router.get('/meteo', async (req,res) => {
-  var ipAddr = req.headers["x-forwarded-for"]
-  if(ipAddr){
-    var list = ipAddr.split(",")
-    ipAddr = list[list.length-1]
-  } else {
-    ipAddr = req.connection.remoteAddress
-  }
-  const ipUrl = `http://ip-api.com/json/${ipAddr}`
-  var city, lat, lon
+  const ipUrl = `https://ipinfo.io/json?token=${process.env.IPINFO_KEY}`
+  var city, coords, lat, lon
   try{
     await fetch (ipUrl)
       .then(res => res.json())
       .then(data => {
         city = data.city
-        lat = data.lat
-        lon = data.lon
+        coords = data.loc.split(',')
+        lat = coords[0];
+        lon = coords[1];
       })
   } catch (err) {
     console.log("Errore chiamata GET e recupero location tramite IP")

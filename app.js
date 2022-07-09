@@ -6,7 +6,7 @@ const app = express()
 
 var accessLogStream = fs.createWriteStream('access.log')
 app.use(morgan('combined', {stream:accessLogStream}))
-//app.use(helmet())
+app.use(helmet())
 
 //Import routes
 const routes = require('./routes.js')
