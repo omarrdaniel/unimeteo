@@ -15,9 +15,9 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use(
   helmet({
-    contentSecurityPolicy: false,
+    crossOriginEmbedderPolicy: false,
   })
-);
+)
 
 //Use view engine
 app.set('view engine', 'ejs')
