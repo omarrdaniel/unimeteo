@@ -1,0 +1,23 @@
+{
+"@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "UniMeteo",
+    "description": "Il tuo servizio metereologico online, a portata di click",
+    "about": "Meteo mondiale",
+    "inLanguage" : "English",
+    "url" : "unimeteo.herokuapp.com",
+    "author": {
+      "@type" : "Person",
+      "name" : "Omar Daniel"
+    },
+    "publisher": {
+      "@type" : "CollegeOrUniversity",
+      "name" : "unimi"
+    },
+    "creator": {
+      "@type" : "Person",
+      "name" : "Omar Daniel"
+    },
+    "copyrightYear" : "2022",
+    "dateModified" : "20 July 2022"
+}
