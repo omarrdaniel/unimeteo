@@ -49,14 +49,14 @@
             <div class="description"><%= description %></div>
           <% } %>
         </div>
-        <% if(feels !== null) { %>
-          <div class="feels">Feels like: <%= feels %> °</div>
-        <% } %>
         <% if(humidity !== null) { %>
           <div class="humidity">Humidity: <%= humidity %> %</div>
         <% } %>
         <% if(wind !== null) { %>
           <div class="wind">Wind speed: <%= wind %> km/h</div>
+        <% } %>
+        <% if(feels !== null) { %>
+          <div class="feels">Feels like: <%= feels %> °</div>
         <% } %>
         <% if(aq !== null) { %>
           <div class="aq">Air quality: <%= aq %></div>
