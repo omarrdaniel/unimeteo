@@ -1,6 +1,5 @@
 const express = require('express')
 const fs = require('fs')
-const helmet = require('helmet')
 //const morgan = require('morgan')
 const app = express()
 
@@ -12,12 +11,6 @@ const app = express()
 const routes = require('./routes.js')
 
 app.use(express.urlencoded({ extended: true }))
-
-app.use(
-  helmet({
-    crossOriginEmbedderPolicy: false,
-  })
-)
 
 //Use view engine
 app.set('view engine', 'ejs')
