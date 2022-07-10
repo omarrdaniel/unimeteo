@@ -15,14 +15,9 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use(
   helmet({
-    contentSecurityPolicy: {
-      directives: {
-        ...helmet.contentSecurityPolicy.getDefaultDirectives(),
-        "img-src": ["'self'", "https://openweathermap.org/img/w"],
-      },
-    },
+    contentSecurityPolicy: false,
   })
-)
+);
 
 //Use view engine
 app.set('view engine', 'ejs')
