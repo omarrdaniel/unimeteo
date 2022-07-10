@@ -39,7 +39,7 @@
           <h2 class="city">Weather in <span id="city"><%= city %></span></h2>
         <% } %>
         <% if(temp !== null) { %>
-          <h1 class="temp"><%= temp %> °</h1>
+          <h1 class="temp"><%= temp %>°</h1>
         <% } %>
         <div class="flex">
           <% if(imgsrc !== null) { %>
@@ -50,13 +50,13 @@
           <% } %>
         </div>
         <% if(humidity !== null) { %>
-          <div class="humidity">Humidity: <%= humidity %> %</div>
+          <div class="humidity">Humidity: <%= humidity %>%</div>
         <% } %>
         <% if(wind !== null) { %>
-          <div class="wind">Wind speed: <%= wind %> km/h</div>
+          <div class="wind">Wind speed: <%= wind %> Km/h</div>
         <% } %>
         <% if(feels !== null) { %>
-          <div class="feels">Feels like: <%= feels %> °</div>
+          <div class="feels">Feels like: <%= feels %>°</div>
         <% } %>
         <% if(aq !== null) { %>
           <div class="aq">Air quality: <%= aq %></div>
