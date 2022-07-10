@@ -27,6 +27,8 @@ async function getAQ (lat,lon,key) {
   } catch (err) {
     console.log("Errore nella chiamata fetch API per AIR QUALITY INDEX!")
   }
+  if(isNan(aq))
+    aq = "Errore!"
   return aq
 }
 
