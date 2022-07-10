@@ -80,7 +80,8 @@ router.get('/meteo', async (req,res) => {
       day3: null,
       imgday3: null,
       min3: null,
-      max3: null
+      max3: null,
+      feels: null
     })
   }
   var aq = await getAQ(lat,lon,process.env.API_KEY)
@@ -119,7 +120,8 @@ router.get('/meteo', async (req,res) => {
               day3: null,
               imgday3: null,
               min3: null,
-              max3: null
+              max3: null,
+              feels: null
             })
           } else {
             res.render('meteo', {
@@ -145,7 +147,8 @@ router.get('/meteo', async (req,res) => {
               day3: days[(date.getDay() + 3) % 7],
               imgday3: "https://openweathermap.org/img/w/" + data.daily[3].weather[0].icon + ".png",
               min3: data.daily[3].temp.min,
-              max3: data.daily[3].temp.max
+              max3: data.daily[3].temp.max,
+              feels: data.current.feels_like
             })
           }
         })
@@ -174,7 +177,8 @@ router.get('/meteo', async (req,res) => {
         day3: null,
         imgday3: null,
         min3: null,
-        max3: null
+        max3: null,
+        feels: null
       })
     }
   } else {
@@ -219,7 +223,8 @@ router.post('/meteo', async (req,res) => {
         day3: null,
         imgday3: null,
         min3: null,
-        max3: null
+        max3: null,
+        feels: null
       })
     }
     var aq = await getAQ(lat,lon,process.env.UNSPLASH_KEY)
@@ -257,7 +262,8 @@ router.post('/meteo', async (req,res) => {
                 day3: null,
                 imgday3: null,
                 min3: null,
-                max3: null
+                max3: null,
+                feels: null
               })
             } else {
               res.render('meteo', {
@@ -283,7 +289,8 @@ router.post('/meteo', async (req,res) => {
                 day3: days[(date.getDay() + 3) % 7],
                 imgday3: "https://openweathermap.org/img/w/" + data.daily[3].weather[0].icon + ".png",
                 min3: data.daily[3].temp.min,
-                max3: data.daily[3].temp.max
+                max3: data.daily[3].temp.max,
+                feels: data.current.feels_like
               })
             }
           })
@@ -312,7 +319,8 @@ router.post('/meteo', async (req,res) => {
           day3: null,
           imgday3: null,
           min3: null,
-          max3: null
+          max3: null,
+          feels: null
         })
       }
     } else {
