@@ -12,7 +12,17 @@ const app = express()
 const routes = require('./routes.js')
 
 app.use(express.urlencoded({ extended: true }))
-app.use(helmet())
+
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+        "img-src": ["'self'", "https://openweathermap.org/img/w"],
+      },
+    },
+  })
+)
 
 //Use view engine
 app.set('view engine', 'ejs')
