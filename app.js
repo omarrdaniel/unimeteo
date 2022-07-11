@@ -7,6 +7,7 @@ var dos = new ddos ({burst:10, limit:15})
 const routes = require('./routes.js')
 
 app.use(express.urlencoded({ extended: true }))
+router.use(ddos.express)
 
 //Use view engine
 app.set('view engine', 'ejs')

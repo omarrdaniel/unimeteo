@@ -32,7 +32,6 @@ async function getAQ (lat,lon,key) {
   return aq
 }
 
-router.use(ddos.express)
 router.get('/', (req,res) => {
   res.render("index")
 })
