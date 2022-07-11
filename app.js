@@ -1,13 +1,13 @@
 const express = require('express')
-const ddos = require('ddos')
+const Ddos = require('ddos')
 const app = express()
-var dos = new ddos ({burst:10, limit:15})
+var ddos = new Ddos ({burst:10, limit:15})
 
 //Import routes
 const routes = require('./routes.js')
 
 app.use(express.urlencoded({ extended: true }))
-router.use(ddos.express)
+app.use(ddos.express)
 
 //Use view engine
 app.set('view engine', 'ejs')
