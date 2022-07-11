@@ -1,7 +1,7 @@
 const express = require('express')
 const Ddos = require('ddos')
 const app = express()
-var ddos = new Ddos ({burst:3, limit:40})
+var ddos = new Ddos ({burst:10, limit:10})
 
 //Import routes
 const routes = require('./routes.js')
