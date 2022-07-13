@@ -178,7 +178,7 @@ router.get('/meteo', async (req,res) => {
               min5: data.daily[5].temp.min,
               max5: data.daily[5].temp.min,
               sunrise: new Date(data.current.sunrise * 1000).getHours() + ":" + new Date(data.current.sunrise).getMinutes(),
-              sunset: new Date(data.current.sunrise * 1000).getHours() + ":" + new Date(data.current.sunrise).getMinutes()
+              sunset: new Date(data.current.sunset * 1000).getHours() + ":" + new Date(data.current.sunrise).getMinutes()
             })
           }
         })
@@ -360,7 +360,7 @@ router.post('/meteo', async (req,res) => {
                 min5: data.daily[5].temp.min,
                 max5: data.daily[5].temp.min,
                 sunrise: new Date(data.current.sunrise * 1000).getHours() + ":" + new Date(data.current.sunrise).getHours(),
-                sunset: new Date(data.current.sunrise * 1000).getHours() + ":" + new Date(data.current.sunrise).getMinutes()
+                sunset: new Date(data.current.sunset * 1000).getHours() + ":" + new Date(data.current.sunrise).getMinutes()
               })
             }
           })
