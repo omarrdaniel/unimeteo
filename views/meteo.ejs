@@ -39,7 +39,7 @@
           <h2 class="city">Weather in <span id="city"><%= city %></span></h2>
         <% } %>
         <% if(temp !== null) { %>
-          <h1 class="temp"><%= temp %>°</h1>
+          <h1 class="temp"><%= temp %> °</h1>
         <% } %>
         <div class="flex">
           <% if(imgsrc !== null) { %>
@@ -50,16 +50,22 @@
           <% } %>
         </div>
         <% if(humidity !== null) { %>
-          <div class="humidity">Humidity: <%= humidity %>%</div>
+          <div class="humidity">Humidity: <%= humidity %> %</div>
         <% } %>
         <% if(wind !== null) { %>
-          <div class="wind">Wind speed: <%= wind %> Km/h</div>
+          <div class="wind">Wind speed: <%= wind %> km/h</div>
         <% } %>
         <% if(feels !== null) { %>
-          <div class="feels">Feels like: <%= feels %>°</div>
+          <div class="feels">Feels like: <%= feels %> °</div>
         <% } %>
         <% if(aq !== null) { %>
           <div class="aq">Air quality: <%= aq %></div>
+        <% } %>
+        <% if(aq !== null) { %>
+          <div class="sunsire">Sunrise: <%= sunrise %></div>
+        <% } %>
+        <% if(aq !== null) { %>
+          <div class="sunset">Sunset: <%= sunset %></div>
         <% } %>
       </div>
       <hr/>
@@ -84,6 +90,16 @@
             <div><%= day3 %>:&nbsp;</div>
             <img src="<%= imgday3 %>" class="icon" loading="lazy" alt="icona meteo">
             <div><%= min3 %>° / <%= max3 %>°</div>
+          </div>
+          <div class="flex">
+            <div><%= day4 %>:&nbsp;</div>
+            <img src="<%= imgday4 %>" class="icon" loading="lazy" alt="icona meteo">
+            <div><%= min4 %>° / <%= max4 %>°</div>
+          </div>
+          <div class="flex">
+            <div><%= day5 %>:&nbsp;</div>
+            <img src="<%= imgday5 %>" class="icon" loading="lazy" alt="icona meteo">
+            <div><%= min5 %>° / <%= max5 %>°</div>
           </div>
         </div>
       <% } %>
