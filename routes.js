@@ -177,7 +177,7 @@ router.get('/meteo', async (req,res) => {
               imgday5: "https://openweathermap.org/img/w/" + data.daily[5].weather[0].icon + ".png",
               min5: data.daily[5].temp.min,
               max5: data.daily[5].temp.min,
-              sunsire: data.current.sunrise,
+              sunrise: data.current.sunrise,
               sunset: data.current.sunset
             })
           }
@@ -217,7 +217,7 @@ router.get('/meteo', async (req,res) => {
         imgday5: null,
         min5: null,
         max5: null,
-        sunsire: null,
+        sunrise: null,
         sunset: null
       })
     }
@@ -273,7 +273,7 @@ router.post('/meteo', async (req,res) => {
         imgday5: null,
         min5: null,
         max5: null,
-        sunsire: null,
+        sunrise: null,
         sunset: null
       })
     }
@@ -322,7 +322,7 @@ router.post('/meteo', async (req,res) => {
                 imgday5: null,
                 min5: null,
                 max5: null,
-                sunsire: null,
+                sunrise: null,
                 sunset: null
               })
             } else {
@@ -359,7 +359,7 @@ router.post('/meteo', async (req,res) => {
                 imgday5: "https://openweathermap.org/img/w/" + data.daily[5].weather[0].icon + ".png",
                 min5: data.daily[5].temp.min,
                 max5: data.daily[5].temp.min,
-                sunsire: data.current.sunrise,
+                sunrise: data.current.sunrise,
                 sunset: data.current.sunset
               })
             }
@@ -399,7 +399,7 @@ router.post('/meteo', async (req,res) => {
           imgday5: null,
           min5: null,
           max5: null,
-          sunsire: null,
+          sunrise: null,
           sunset: null
         })
       }
