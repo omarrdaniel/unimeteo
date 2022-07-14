@@ -288,6 +288,10 @@ router.post('/meteo', async (req,res) => {
         await fetch(weatherUrl)
           .then(res => res.json())
           .then(data => {
+            var hours = new Date ()
+            var hours2 = new Date ()
+            hours.setTime(data.current.sunrise + 1*60*60*1000)
+            hours2.setTime(data.current.sunset + 1*60*60*1000)
             if(data.message === 'city not found' || data.message === 'wrong latitude' || data.message === 'wrong longitude'){
               res.render('meteo', {
                 city: data.message,
@@ -359,8 +363,8 @@ router.post('/meteo', async (req,res) => {
                 imgday5: "https://openweathermap.org/img/w/" + data.daily[5].weather[0].icon + ".png",
                 min5: data.daily[5].temp.min,
                 max5: data.daily[5].temp.min,
-                sunrise: new Date().setTime(data.current.sunrise + (1 * 60 * 60 * 1000)).getHours() + ":" + new Date(data.current.sunrise).getMinutes(),
-                sunset: new Date().setTime(data.current.sunset + (1 * 60 * 60 * 1000)).getHours() + ":" + new Date(data.current.sunset).getMinutes()
+                sunrise: hours.getHours() + ":" + new Date(data.current.sunrise).getMinutes(),
+                sunset: hours2.getHours() + ":" + new Date(data.current.sunset).getMinutes()
               })
             }
           })
