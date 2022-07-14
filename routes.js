@@ -32,8 +32,8 @@ async function getAQ (lat,lon,key) {
   return aq
 }
 
-function addHours(numOfHours, date) {
-  date.setTime(date.getTime() + numOfHours * 60 * 60 * 1000);
+function addHours(numOfHours, date, time) {
+  date.setTime(time + numOfHours * 60 * 60 * 1000);
 
   return date;
 }
