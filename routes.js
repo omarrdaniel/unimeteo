@@ -146,6 +146,8 @@ router.get('/meteo', async (req,res) => {
             var date = new Date ()
             var sunrise = new Date (data.current.sunrise)
             var sunset = new Date (data.current.sunset)
+            console.log(sunset)
+            console.log(sunrise)
             res.render('meteo', {
               city: city,
               temp: data.current.temp,
