@@ -32,10 +32,11 @@ async function getAQ (lat,lon,key) {
   return aq
 }
 
-function addHours(numOfHours, date, time) {
-  date.setTime(time + numOfHours * 60 * 60 * 1000);
+function getHours(time) {
+  var date = new Date (time)
+  var hours = date.getHours();
 
-  return date;
+  return hours + 2;
 }
 
 router.get('/', (req,res) => {
@@ -183,8 +184,8 @@ router.get('/meteo', async (req,res) => {
               imgday5: "https://openweathermap.org/img/w/" + data.daily[5].weather[0].icon + ".png",
               min5: data.daily[5].temp.min,
               max5: data.daily[5].temp.min,
-              sunrise: addHours(1,new Date(data.current.sunrise)).getHours() + ":" + new Date(data.current.sunrise).getMinutes(),
-              sunset: addHours(1,new Date(data.current.sunset)).getHours() + ":" + new Date(data.current.sunset).getMinutes()
+              sunrise: getHours(data.current.sunrise) + ":" + new Date(data.current.sunrise).getMinutes(),
+              sunset: getHours(data.current.sunset) + ":" + new Date(data.current.sunset).getMinutes()
             })
           }
         })
