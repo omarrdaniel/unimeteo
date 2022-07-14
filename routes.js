@@ -330,10 +330,8 @@ router.post('/meteo', async (req,res) => {
               const index = ["Good", "Fair", "Moderate", "Poor", "Very poor"]
               const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
               var date = new Date ()
-              var hours = new Date ()
-              var hours2 = new Date ()
-              hours.setTime(data.current.sunrise + 1*60*60*1000)
-              hours2.setTime(data.current.sunset + 1*60*60*1000)
+              var sunrise = new Date (data.current.sunrise)
+              var sunset = new Date (data.current.sunset)
               res.render('meteo', {
                 city: city,
                 temp: data.current.temp,
@@ -367,8 +365,8 @@ router.post('/meteo', async (req,res) => {
                 imgday5: "https://openweathermap.org/img/w/" + data.daily[5].weather[0].icon + ".png",
                 min5: data.daily[5].temp.min,
                 max5: data.daily[5].temp.min,
-                sunrise: hours.getHours() + ":" + new Date(data.current.sunrise).getMinutes(),
-                sunset: hours2.getHours() + ":" + new Date(data.current.sunset).getMinutes()
+                sunrise: sunrise.getUTCHours() + ":" + sunrise.getUTCMinutes(),
+                sunset: sunset.getUTCHours() + ":" + sunset.getUTCMinutes()
               })
             }
           })
