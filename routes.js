@@ -99,9 +99,6 @@ router.get('/meteo', async (req,res) => {
   if(lat || lon && aq){
     //onecall 1.0 api
     const weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely,hourly&appid=${process.env.API_KEY}`
-    const index = ["Good", "Fair", "Moderate", "Poor", "Very poor"]
-    const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
-    var date = new Date ()
     try{
       await fetch(weatherUrl)
         .then(res => res.json())
@@ -144,6 +141,11 @@ router.get('/meteo', async (req,res) => {
               sunset: null
             })
           } else {
+            const index = ["Good", "Fair", "Moderate", "Poor", "Very poor"]
+            const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+            var date = new Date ()
+            var sunrise = new Date (data.current.sunrise)
+            var sunset = new Date (data.current.sunset)
             res.render('meteo', {
               city: city,
               temp: data.current.temp,
@@ -177,8 +179,8 @@ router.get('/meteo', async (req,res) => {
               imgday5: "https://openweathermap.org/img/w/" + data.daily[5].weather[0].icon + ".png",
               min5: data.daily[5].temp.min,
               max5: data.daily[5].temp.min,
-              sunrise: new Date().setTime(data.current.sunrise + (1 * 60 * 60 * 1000)).getHours() + ":" + new Date(data.current.sunrise).getMinutes(),
-              sunset: new Date().setTime(data.current.sunset + (1 * 60 * 60 * 1000)).getHours() + ":" + new Date(data.current.sunset).getMinutes()
+              sunrise: sunrise.getUTCHours() + ":" + sunrise.getUTCMinutes(),
+              sunset: sunset.getUTCHours() + ":" + sunset.getUTCMinutes()
             })
           }
         })
@@ -281,17 +283,10 @@ router.post('/meteo', async (req,res) => {
     if(lat || lon && aq){
       //onecall 1.0 api
       const weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely,hourly&appid=${process.env.API_KEY}`
-      const index = ["Good", "Fair", "Moderate", "Poor", "Very poor"]
-      const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
-      var date = new Date ()
       try{
         await fetch(weatherUrl)
           .then(res => res.json())
           .then(data => {
-            var hours = new Date ()
-            var hours2 = new Date ()
-            hours.setTime(data.current.sunrise + 1*60*60*1000)
-            hours2.setTime(data.current.sunset + 1*60*60*1000)
             if(data.message === 'city not found' || data.message === 'wrong latitude' || data.message === 'wrong longitude'){
               res.render('meteo', {
                 city: data.message,
@@ -330,6 +325,13 @@ router.post('/meteo', async (req,res) => {
                 sunset: null
               })
             } else {
+              const index = ["Good", "Fair", "Moderate", "Poor", "Very poor"]
+              const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+              var date = new Date ()
+              var hours = new Date ()
+              var hours2 = new Date ()
+              hours.setTime(data.current.sunrise + 1*60*60*1000)
+              hours2.setTime(data.current.sunset + 1*60*60*1000)
               res.render('meteo', {
                 city: city,
                 temp: data.current.temp,
