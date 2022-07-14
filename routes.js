@@ -183,8 +183,8 @@ router.get('/meteo', async (req,res) => {
               imgday5: "https://openweathermap.org/img/w/" + data.daily[5].weather[0].icon + ".png",
               min5: data.daily[5].temp.min,
               max5: data.daily[5].temp.min,
-              sunrise: addHours(2,new Date(data.current.sunrise)).getHours() + ":" + new Date(data.current.sunrise).getMinutes(),
-              sunset: new Date(data.current.sunset * 1000).getHours() + ":" + new Date(data.current.sunset).getMinutes()
+              sunrise: addHours(1,new Date(data.current.sunrise)).getHours() + ":" + new Date(data.current.sunrise).getMinutes(),
+              sunset: addHours(1,new Date(data.current.sunset)).getHours() + ":" + new Date(data.current.sunset).getMinutes()
             })
           }
         })
@@ -365,8 +365,8 @@ router.post('/meteo', async (req,res) => {
                 imgday5: "https://openweathermap.org/img/w/" + data.daily[5].weather[0].icon + ".png",
                 min5: data.daily[5].temp.min,
                 max5: data.daily[5].temp.min,
-                sunrise: new Date(data.current.sunrise * 1000).getHours() + ":" + new Date(data.current.sunrise).getMinutes(),
-                sunset: new Date(data.current.sunset * 1000).getHours() + ":" + new Date(data.current.sunset).getMinutes()
+                sunrise: addHours(1,new Date(data.current.sunrise)).getHours() + ":" + new Date(data.current.sunrise).getMinutes(),
+                sunset: addHours(1,new Date(data.current.sunset)).getHours() + ":" + new Date(data.current.sunset).getMinutes()
               })
             }
           })
