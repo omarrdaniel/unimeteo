@@ -34,9 +34,9 @@ async function getAQ (lat,lon,key) {
 
 function getHours(time) {
   var date = new Date (time)
-  var hours = date.getHours();
-
-  return hours + 2;
+  var hours = date.getHours()
+  console.log(hours)
+  return hours + 2
 }
 
 router.get('/', (req,res) => {
