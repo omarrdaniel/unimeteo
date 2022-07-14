@@ -144,8 +144,8 @@ router.get('/meteo', async (req,res) => {
             const index = ["Good", "Fair", "Moderate", "Poor", "Very poor"]
             const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
             var date = new Date ()
-            var sunrise = new Date (data.current.sunrise)
-            var sunset = new Date (data.current.sunset)
+            var sunrise = new Date (data.current.sunrise * 1000)
+            var sunset = new Date (data.current.sunset * 1000)
             console.log(sunset)
             console.log(sunrise)
             res.render('meteo', {
@@ -181,8 +181,8 @@ router.get('/meteo', async (req,res) => {
               imgday5: "https://openweathermap.org/img/w/" + data.daily[5].weather[0].icon + ".png",
               min5: data.daily[5].temp.min,
               max5: data.daily[5].temp.min,
-              sunrise: sunrise.getUTCHours() + ":" + sunrise.getUTCMinutes(),
-              sunset: sunset.getUTCHours() + ":" + sunset.getUTCMinutes()
+              sunrise: sunrise.getHours() + ":" + sunrise.getMinutes(),
+              sunset: sunset.getHours() + ":" + sunset.getMinutes()
             })
           }
         })
@@ -330,8 +330,8 @@ router.post('/meteo', async (req,res) => {
               const index = ["Good", "Fair", "Moderate", "Poor", "Very poor"]
               const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
               var date = new Date ()
-              var sunrise = new Date (data.current.sunrise)
-              var sunset = new Date (data.current.sunset)
+              var sunrise = new Date (data.current.sunrise * 1000)
+              var sunset = new Date (data.current.sunset * 1000)
               res.render('meteo', {
                 city: city,
                 temp: data.current.temp,
@@ -365,8 +365,8 @@ router.post('/meteo', async (req,res) => {
                 imgday5: "https://openweathermap.org/img/w/" + data.daily[5].weather[0].icon + ".png",
                 min5: data.daily[5].temp.min,
                 max5: data.daily[5].temp.min,
-                sunrise: sunrise.getUTCHours() + ":" + sunrise.getUTCMinutes(),
-                sunset: sunset.getUTCHours() + ":" + sunset.getUTCMinutes()
+                sunrise: sunrise.getHours() + ":" + sunrise.getMinutes(),
+                sunset: sunset.getHours() + ":" + sunset.getMinutes()
               })
             }
           })
