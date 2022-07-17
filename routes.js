@@ -145,7 +145,17 @@ router.get('/meteo', async (req,res) => {
             const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
             var date = new Date ()
             var sunrise = new Date (data.current.sunrise * 1000)
+            if(sunrise.getMinutes()<10){
+              var sunrmin = '0' + sunrise.getMinutes()
+            } else {
+              var sunrmin = sunrise.getMinutes()
+            }
             var sunset = new Date (data.current.sunset * 1000)
+            if(sunset.getMinutes()<10){
+              var sunsmin = '0' + sunset.getMinutes()
+            } else {
+              var sunsmin = sunset.getMinutes()
+            }
             res.render('meteo', {
               city: city,
               temp: data.current.temp,
@@ -179,8 +189,8 @@ router.get('/meteo', async (req,res) => {
               imgday5: "https://openweathermap.org/img/w/" + data.daily[5].weather[0].icon + ".png",
               min5: data.daily[5].temp.min,
               max5: data.daily[5].temp.min,
-              sunrise: (sunrise.getHours()+2) + ":" + sunrise.getMinutes(),
-              sunset: (sunset.getHours()+2) + ":" + sunset.getMinutes()
+              sunrise: (sunrise.getHours()+2) + ":" + sunrmin,
+              sunset: (sunset.getHours()+2) + ":" + sunsmin
             })
           }
         })
@@ -329,7 +339,17 @@ router.post('/meteo', async (req,res) => {
               const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
               var date = new Date ()
               var sunrise = new Date (data.current.sunrise * 1000)
+              if(sunrise.getMinutes()<10){
+                var sunrmin = '0' + sunrise.getMinutes()
+              } else {
+                var sunrmin = sunrise.getMinutes()
+              }
               var sunset = new Date (data.current.sunset * 1000)
+              if(sunset.getMinutes()<10){
+                var sunsmin = '0' + sunset.getMinutes()
+              } else {
+                var sunsmin = sunset.getMinutes()
+              }
               res.render('meteo', {
                 city: city,
                 temp: data.current.temp,
@@ -363,8 +383,8 @@ router.post('/meteo', async (req,res) => {
                 imgday5: "https://openweathermap.org/img/w/" + data.daily[5].weather[0].icon + ".png",
                 min5: data.daily[5].temp.min,
                 max5: data.daily[5].temp.min,
-                sunrise: (sunrise.getHours() + 2) + ":" + sunrise.getMinutes(),
-                sunset: (sunset.getHours() + 2) + ":" + sunset.getMinutes()
+                sunrise: (sunrise.getHours() + 2) + ":" + sunrmin,
+                sunset: (sunset.getHours() + 2) + ":" + sunsmin
               })
             }
           })
