@@ -6,7 +6,7 @@
     <meta name="description" content="Meteo della cità di <%= city %>, Weather of <%= city %>">
     <meta name="author" content="Omar Daniel, 01664A, Università degli Studi di Milano">
     <meta name="keywords" content="Meteo, Città, Previsioni, Clima, Tempo, Temperatura, Precipitazioni, <%= city %>, <%= description %>, Weather, City, Rainfall, Temperature, Forecast">
-    <link href="/meta/schema.json" type="application/ld+json">
+    <link href="/meta/schema.json" type="application/ld+json" rel="alternate">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'>
     <title>UniMeteo | <%= city %></title>
@@ -105,7 +105,7 @@
       <% } %>
       <p id="footer">Daniel Omar, 01664A - Università degli Studi di Milano - 2021/22 &copy;</p>
     </div>
-    <script type="text/javascript" src="/js/darkMode.js"></script>
-    <script type="text/javascript" src="/js/saveChoice.js"></script>
+    <script src="/js/darkMode.js"></script>
+    <script src="/js/saveChoice.js"></script>
   </body>
 </html>
