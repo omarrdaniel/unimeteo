@@ -382,7 +382,7 @@ router.post('/meteo', async (req,res) => {
                 day5:  days[(date.getDay() + 5) % 7],
                 imgday5: "https://openweathermap.org/img/w/" + data.daily[5].weather[0].icon + ".png",
                 min5: data.daily[5].temp.min,
-                max5: data.daily[5].temp.min,
+                max5: data.daily[5].temp.max,
                 sunrise: (sunrise.getHours() + 2) + ":" + sunrmin,
                 sunset: (sunset.getHours() + 2) + ":" + sunsmin
               })
