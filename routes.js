@@ -38,6 +38,7 @@ router.get('/', (req,res) => {
 
 router.get('/meteo', async (req,res) => {
   //passaggio per prendere reale indirizzo IP client e non del server che effettua la richiesta
+  //SE ESEGUITO IN LOCALE VA TOLTO
   var ipAddr = req.headers["x-forwarded-for"];
   if (ipAddr){
     var list = ipAddr.split(",");
